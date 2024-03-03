@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expense_tracker/components/add_expense_sheet.dart';
+import 'package:flutter_expense_tracker/components/chart.dart';
 import 'package:flutter_expense_tracker/components/expense_list.dart';
 import 'package:flutter_expense_tracker/models/expense.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +23,12 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
         title: "Cinema",
         amount: 299,
         category: Category.leisure,
-        date: DateTime.now())
+        date: DateTime.now()),
+    Expense(
+        title: "Gaming",
+        amount: 499,
+        category: Category.leisure,
+        date: DateTime.now()),
   ];
 
   void openAddOverlay() {
@@ -93,11 +99,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Text(
-              "The Chart",
-              style:
-                  GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            Chart(expenses: registeredExpenses),
             Expanded(child: mainContent)
           ],
         ),
